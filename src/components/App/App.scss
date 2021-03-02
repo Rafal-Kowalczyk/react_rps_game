@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid red;
+
+  &__header {
+    margin: 0 0 0.5rem;
+  }
+
+  &__subheader {
+    margin: 0 0 2rem;
+  }
+
+  &__input-name {
+    color: blue;
+    margin-bottom: 1rem;
+  }
+
+  .user-wrap {
+    display: flex;
+    flex-direction: column;
+
+    .user__desc {
+      margin-bottom: 0.5rem;
+      font-size: 13px;
+    }
+
+    .user__input {
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 13px;
+    }
+
+    .user__btn {
+      width: 60%;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      background-color: rgb(1, 202, 216);
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: rgb(13, 160, 0);
+      }
+    }
+  }
+}
+
+.body-wrap {
+  // display: none;
+  width: 100%;
+  height: 5rem;
+  background-color: rgb(189, 189, 189);
+  border: 1px solid green;
+}
