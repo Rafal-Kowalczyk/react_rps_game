@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+import './UserLog.scss';
+
 function UserLog({ user, setUser, setIsVisibility }) {
   const inputRef = useRef();
 
@@ -8,8 +10,12 @@ function UserLog({ user, setUser, setIsVisibility }) {
   };
 
   const addName = () => {
-    setUser(user);
-    setIsVisibility(true);
+    if (user !== '') {
+      setUser(user);
+      setIsVisibility(false);
+    } else {
+      alert('Wprowadź nazwę gracza!');
+    }
   };
 
   const focusInput = () => {
@@ -19,6 +25,7 @@ function UserLog({ user, setUser, setIsVisibility }) {
   useEffect(() => {
     focusInput();
   }, []);
+
   return (
     <div className='user-wrap'>
       <p className='user__desc'>

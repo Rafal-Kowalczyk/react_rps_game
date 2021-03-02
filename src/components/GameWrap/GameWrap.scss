@@ -1,0 +1,30 @@
+.game-wrap {
+  width: 100%;
+  padding: 1rem;
+  // background-color: rgb(189, 189, 189);
+  border: 1px solid green;
+
+  .btn__box {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: 0 auto 1.5rem;
+
+    .btn__choice {
+      padding: 0.5rem 1rem;
+      border: 0;
+    }
+  }
+
+  .game__area {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .user,
+    .points {
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+  }
+}

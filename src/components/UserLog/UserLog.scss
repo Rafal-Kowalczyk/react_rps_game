@@ -1,0 +1,32 @@
+.user-wrap {
+  display: flex;
+  flex-direction: column;
+
+  .user__desc {
+    margin-bottom: 0.5rem;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .user__input {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 13px;
+  }
+
+  .user__btn {
+    width: 60%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    background-color: rgb(1, 202, 216);
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgb(13, 160, 0);
+    }
+  }
+}
