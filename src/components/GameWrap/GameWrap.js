@@ -8,6 +8,7 @@ function GameWrap({ user }) {
   const [points, setPoints] = useState(0);
   const [pointsComp, setPointsComp] = useState(0);
   const [winner, setWinner] = useState('');
+  const [endRound, setEndRound] = useState(true);
 
   const computer = 'Computer';
   const computerChoice = ['Kamień', 'Papier', 'Nożyczki'];
@@ -24,6 +25,7 @@ function GameWrap({ user }) {
 
     if (value === valueC) {
       winnerIs = 0;
+      setWinner('');
     } else if (
       (valueC === 'Kamień' && value === 'Nożyczki') ||
       (valueC === 'Nożyczki' && value === 'Papier') ||
@@ -40,49 +42,79 @@ function GameWrap({ user }) {
       setWinner(`tą partię wygrał ${computer}`);
     }
   };
+  console.log(points, pointsComp);
+
+  const endFunc = () => {
+    if (points === 3) {
+      setWinner(`Grę wygrał ${user}`);
+      setEndRound(false);
+    } else if (pointsComp === 3) {
+      setWinner(`Grę wygrał ${computer}`);
+      setEndRound(false);
+    }
+    console.log(points, pointsComp, 'dd');
+  };
 
   const getValueHandler = (e) => {
     setValue(e.target.value);
     getValueComputer();
     checkRoundWinner(e);
+    endFunc();
+  };
+
+  const returnGameHandler = () => {
+    setEndRound(true);
+    setValue('');
+    setValueComp('');
+    setPoints(0);
+    setPointsComp(0);
   };
 
   return (
     <div className='game-wrap'>
-      <div className='btn__box'>
-        <button
-          className='btn__choice'
-          value={'Kamień'}
-          onClick={getValueHandler}>
-          Kamień
-        </button>
-        <button
-          className='btn__choice'
-          value={'Papier'}
-          onClick={getValueHandler}>
-          Papier
-        </button>
-        <button
-          className='btn__choice'
-          value={'Nożyczki'}
-          onClick={getValueHandler}>
-          Nożyczki
-        </button>
-      </div>
-      <div className='game__area'>
-        <div className='user__box'>
-          <div className='user'>{user}</div>
-          <div className='choice'>{value}</div>
-          <div className='points'>{points}</div>
+      {endRound ? (
+        <>
+          <div className='btn__box'>
+            <button
+              className='btn__choice'
+              value={'Kamień'}
+              onClick={getValueHandler}>
+              Kamień
+            </button>
+            <button
+              className='btn__choice'
+              value={'Papier'}
+              onClick={getValueHandler}>
+              Papier
+            </button>
+            <button
+              className='btn__choice'
+              value={'Nożyczki'}
+              onClick={getValueHandler}>
+              Nożyczki
+            </button>
+          </div>
+
+          <div className='game__area'>
+            <div className='user__box'>
+              <div className='user'>{user}</div>
+              <div className='choice'>{value}</div>
+              <div className='points'>{points}</div>
+            </div>
+            <span>VS</span>
+            <div className='user__box'>
+              <div className='user'>{computer}</div>
+              <div className='choice'>{valueComp}</div>
+              <div className='points'>{pointsComp}</div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div>
+          <p>{winner}</p>
+          <button onClick={returnGameHandler}>koniec</button>
         </div>
-        <span>VS</span>
-        <div className='user__box'>
-          <div className='user'>{computer}</div>
-          <div className='choice'>{valueComp}</div>
-          <div className='points'>{pointsComp}</div>
-        </div>
-      </div>
-      <small>{winner}</small>
+      )}
     </div>
   );
 }
