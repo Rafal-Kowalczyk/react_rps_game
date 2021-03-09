@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ChoiceButtons from './ChoiceButtons/ChoiceButtons';
 
 import './GameWrap.scss';
 
@@ -36,10 +37,10 @@ function GameWrap({ user }) {
 
     if (user === winnerIs) {
       setPoints(points + 1);
-      setWinner(`tą partię wygrał ${user}`);
+      // setWinner(`tą partię wygrał ${user}`);
     } else if (computer === winnerIs) {
       setPointsComp(pointsComp + 1);
-      setWinner(`tą partię wygrał ${computer}`);
+      // setWinner(`tą partię wygrał ${computer}`);
     }
   };
   console.log(points, pointsComp);
@@ -55,11 +56,14 @@ function GameWrap({ user }) {
     console.log(points, pointsComp, 'dd');
   };
 
+  useEffect(() => {
+    endFunc();
+  });
+
   const getValueHandler = (e) => {
     setValue(e.target.value);
     getValueComputer();
     checkRoundWinner(e);
-    endFunc();
   };
 
   const returnGameHandler = () => {
@@ -74,26 +78,7 @@ function GameWrap({ user }) {
     <div className='game-wrap'>
       {endRound ? (
         <>
-          <div className='btn__box'>
-            <button
-              className='btn__choice'
-              value={'Kamień'}
-              onClick={getValueHandler}>
-              Kamień
-            </button>
-            <button
-              className='btn__choice'
-              value={'Papier'}
-              onClick={getValueHandler}>
-              Papier
-            </button>
-            <button
-              className='btn__choice'
-              value={'Nożyczki'}
-              onClick={getValueHandler}>
-              Nożyczki
-            </button>
-          </div>
+          <ChoiceButtons value={value} getValue={() => getValueHandler} />
 
           <div className='game__area'>
             <div className='user__box'>
@@ -108,6 +93,7 @@ function GameWrap({ user }) {
               <div className='points'>{pointsComp}</div>
             </div>
           </div>
+          {/* <small>{winner}</small> */}
         </>
       ) : (
         <div>
