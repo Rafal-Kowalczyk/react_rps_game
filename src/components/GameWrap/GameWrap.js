@@ -38,28 +38,10 @@ function GameWrap({ user }) {
 
     if (user === winnerIs) {
       setPoints(points + 1);
-      // setWinner(`tą partię wygrał ${user}`);
     } else if (computer === winnerIs) {
       setPointsComp(pointsComp + 1);
-      // setWinner(`tą partię wygrał ${computer}`);
     }
   };
-  console.log(points, pointsComp);
-
-  const endFunc = () => {
-    if (points === 3) {
-      setWinner(`Grę wygrał ${user}`);
-      setEndRound(false);
-    } else if (pointsComp === 3) {
-      setWinner(`Grę wygrał ${computer}`);
-      setEndRound(false);
-    }
-    console.log(points, pointsComp, 'dd');
-  };
-
-  useEffect(() => {
-    endFunc();
-  });
 
   const getValueHandler = (e) => {
     setValue(e.target.value);
@@ -67,7 +49,26 @@ function GameWrap({ user }) {
     checkRoundWinner(e);
   };
 
+  const endFunc = () => {
+    if (points === 10) {
+      setWinner(`Grę wygrał ${user}`);
+      setTimeout(() => {
+        setEndRound(false);
+      }, 2000);
+    } else if (pointsComp === 10) {
+      setWinner(`Grę wygrał ${computer}`);
+      setTimeout(() => {
+        setEndRound(false);
+      }, 2000);
+    }
+  };
+
+  useEffect(() => {
+    endFunc();
+  });
+
   const returnGameHandler = () => {
+    setWinner('');
     setEndRound(true);
     setValue('');
     setValueComp('');
@@ -79,7 +80,9 @@ function GameWrap({ user }) {
     <div className='game-wrap'>
       {endRound ? (
         <>
-          <ChoiceButtons value={value} getValue={() => getValueHandler} />
+          {winner === '' ? (
+            <ChoiceButtons value={value} getValue={() => getValueHandler} />
+          ) : null}
           <GameArea
             user={user}
             value={value}
@@ -88,13 +91,11 @@ function GameWrap({ user }) {
             valueComp={valueComp}
             pointsComp={pointsComp}
           />
-
-          {/* <small>{winner}</small> */}
+          <p>{winner}</p>
         </>
       ) : (
         <div>
-          <p>{winner}</p>
-          <button onClick={returnGameHandler}>koniec</button>
+          <button onClick={returnGameHandler}>Zagraj raz jeszcze</button>
         </div>
       )}
     </div>
