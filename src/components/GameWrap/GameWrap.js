@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChoiceButtons from './ChoiceButtons/ChoiceButtons';
+import GameArea from './GameArea/GameArea';
 
 import './GameWrap.scss';
 
@@ -79,20 +80,15 @@ function GameWrap({ user }) {
       {endRound ? (
         <>
           <ChoiceButtons value={value} getValue={() => getValueHandler} />
+          <GameArea
+            user={user}
+            value={value}
+            points={points}
+            comp={computer}
+            valueComp={valueComp}
+            pointsComp={pointsComp}
+          />
 
-          <div className='game__area'>
-            <div className='user__box'>
-              <div className='user'>{user}</div>
-              <div className='choice'>{value}</div>
-              <div className='points'>{points}</div>
-            </div>
-            <span>VS</span>
-            <div className='user__box'>
-              <div className='user'>{computer}</div>
-              <div className='choice'>{valueComp}</div>
-              <div className='points'>{pointsComp}</div>
-            </div>
-          </div>
           {/* <small>{winner}</small> */}
         </>
       ) : (
