@@ -14,7 +14,7 @@ const dataButton = [
   },
   {
     id: 3,
-    value: 'Nożyczki',
+    value: 'Nożyce',
     img: <FaHandScissors />,
   },
 ];
@@ -44,7 +44,7 @@ function ChoiceButtons({ getValue }) {
     //     <button className='btn__choice' value={'Papier'} onClick={getValue()}>
     //       Papier
     //     </button>
-    //     <button className='btn__choice' value={'Nożyczki'} onClick={getValue()}>
+    //     <button className='btn__choice' value={'Nożyce'} onClick={getValue()}>
     //       Nożyczki
     //     </button>
     //   </div>

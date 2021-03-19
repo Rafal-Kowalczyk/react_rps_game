@@ -13,7 +13,7 @@ function GameWrap({ user }) {
   const [endRound, setEndRound] = useState(true);
 
   const computer = 'Computer';
-  const computerChoice = ['Kamień', 'Papier', 'Nożyczki'];
+  const computerChoice = ['Kamień', 'Papier', 'Nożyce'];
 
   let valueC = computerChoice[Math.floor(Math.random() * 3)];
 
@@ -29,8 +29,8 @@ function GameWrap({ user }) {
       winnerIs = 0;
       setWinner('');
     } else if (
-      (valueC === 'Kamień' && value === 'Nożyczki') ||
-      (valueC === 'Nożyczki' && value === 'Papier') ||
+      (valueC === 'Kamień' && value === 'Nożyce') ||
+      (valueC === 'Nożyce' && value === 'Papier') ||
       (valueC === 'Papier' && value === 'Kamień')
     ) {
       winnerIs = computer;
