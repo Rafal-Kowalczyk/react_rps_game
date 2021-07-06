@@ -28,4 +28,22 @@
       margin: 0.5rem 0;
     }
   }
+
+  .btn__again {
+    width: 60%;
+    margin: 0 auto 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    background-color: #8e9e82;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgb(89, 143, 84);
+    }
+  }
+
 }

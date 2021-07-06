@@ -98,7 +98,7 @@ function GameWrap({ user }) {
         </>
       ) : (
         <>
-          <button onClick={returnGameHandler}>Zagraj raz jeszcze</button>
+          <button className="btn__again" onClick={returnGameHandler}>Zagraj raz jeszcze</button>
         </>
       )}
     </div>
