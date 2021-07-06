@@ -1,0 +1,20 @@
+.btn__choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 31%;
+  padding: 1rem 1.5rem;
+  line-height: 28px;
+  background-color: #8e9e82;
+  color: #f2f0df;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: #eec042;
+    background-color: rgb(89, 143, 84);
+  }
+}

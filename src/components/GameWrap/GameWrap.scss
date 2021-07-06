@@ -1,13 +1,9 @@
 .game-wrap {
   width: 100%;
-  padding: 1rem;
-  // background-color: rgb(189, 189, 189);
-  border: 1px solid green;
 
   .btn__box {
     display: flex;
-    justify-content: space-evenly;
-    width: 70%;
+    justify-content: space-between;
     margin: 0 auto 1.5rem;
 
     .btn__choice {
@@ -21,8 +17,9 @@
     justify-content: space-evenly;
     align-items: center;
 
+
     .user__box {
-      width: 30%;
+      width: 40%;
     }
 
     .user,

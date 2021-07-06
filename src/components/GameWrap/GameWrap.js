@@ -65,7 +65,10 @@ function GameWrap({ user }) {
 
   useEffect(() => {
     endFunc();
-  });
+    return () => {
+      setEndRound(true);
+    }; // eslint-disable-next-line
+  }, [points, pointsComp]);
 
   const returnGameHandler = () => {
     setWinner('');
@@ -94,9 +97,9 @@ function GameWrap({ user }) {
           <p>{winner}</p>
         </>
       ) : (
-        <div>
+        <>
           <button onClick={returnGameHandler}>Zagraj raz jeszcze</button>
-        </div>
+        </>
       )}
     </div>
   );

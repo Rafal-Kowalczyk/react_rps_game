@@ -11,7 +11,7 @@ function App() {
     <div className='app'>
       <div className='app__wrap'>
         <h1 className='app__header'>Witaj w grze</h1>
-        <h3 className='app__subheader'>kamień papier nożyce</h3>
+        <h4 className='app__subheader'>Kamień Papier Nożyce</h4>
         {isVisibility ? (
           <UserLog
             user={user}

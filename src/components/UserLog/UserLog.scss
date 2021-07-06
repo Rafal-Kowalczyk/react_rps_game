@@ -3,30 +3,42 @@
   flex-direction: column;
 
   .user__desc {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-size: 13px;
     text-align: left;
   }
 
   .user__input {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 5px;
     font-size: 13px;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: 0;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
   }
 
   .user__btn {
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     padding: 0.5rem 1rem;
     font-weight: 600;
-    background-color: rgb(1, 202, 216);
+    background-color: #8e9e82;
     color: #fff;
     border: 0;
+    border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
 
     &:hover {
-      background-color: rgb(13, 160, 0);
+      background-color: rgb(89, 143, 84);
     }
   }
 }
